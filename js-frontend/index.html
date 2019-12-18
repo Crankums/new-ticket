@@ -7,6 +7,26 @@
     <title>New Ticket</title>
 </head>
 <body>
+    <div id="contact-block-container">
+        <div id="contact-form">
+            <input type="text" name="customer-name" id="customer-name" placeholder="Customer Name">
+            <input type="text" name="customer-phone" id="customer-phone" placeholder="Customer Phone">
+            <input type="text" name="customer-email" id="customer-email" placeholder="Customer Email">
+            <input type="submit" value="Search">
+        </div>
+    </div>
+    <div id="new-ticket-container">
+        <div id='new_ticket-form'>
+            <!-- here, the form will be created after I either find or add the customer -->
+        </div>
+    </div>
+    <div id="tickets-container">
+        <!-- here is where i will provide a list of current tickets -->
+    </div>
+    <script src="src/components/app.js"></script>
+    <script src="src/components/tickets.js"></script>
+    <script src="src/adaptors/ticketsAdaptor.js"></script>
+    <script src="src/index.js"></script>
     
 </body>
 </html>
