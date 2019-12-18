@@ -5,4 +5,8 @@ class Tickets {
         this.initBindingsAndEventListeners()
         this.fetchAndLoadTickets()
     }
+
+    findOrCreateCustomer(e) {
+        e.preventDefault()
+    }
 }
