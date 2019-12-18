@@ -1,6 +1,11 @@
 class CreateTickets < ActiveRecord::Migration[6.0]
   def change
     create_table :tickets do |t|
+      t.string :parts
+      t.string :labor
+      t.string :price
+      t.integer :customer_id
+      t.integer :bike_id
 
       t.timestamps
     end
