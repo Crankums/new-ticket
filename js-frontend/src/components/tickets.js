@@ -10,9 +10,9 @@ class Tickets {
         e.preventDefault()
     }
 
+    // render completed ticket
+
     // once ticket is rendered:
     //  -on double-click, editable
     //  -on blur, saves
-
-    // 
 }

@@ -1,4 +1,4 @@
-class TicketsAdapter {
+class CustomersAdapter {
     constructor() {
         this.baseUrl = 'http:localhost:3000/api/v1/customers'
     }
@@ -9,4 +9,10 @@ class TicketsAdapter {
     }
 
     // post and update methods
+
+    // createCustomers(value){}
+
+    // updateCustomers(value){}
+
+    
 }
