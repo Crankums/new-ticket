@@ -6,6 +6,13 @@ class Tickets {
         this.fetchAndLoadTickets()
     }
 
+    initBindingsAndEventListeners() {
+        this.ticketContainer = document.getElementById('new-ticket-container')
+        this.ticketForm = document.getElementById('new-ticket-form')
+        this.body = document.querySelector('body')
+        
+    }
+
     findOrCreateCustomer(e) {
         e.preventDefault()
     }
@@ -29,7 +36,7 @@ class Tickets {
         }
     
     renderForm() {
-        
+
     }
 
 
