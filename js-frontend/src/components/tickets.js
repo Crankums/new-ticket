@@ -10,11 +10,23 @@ class Tickets {
         this.ticketContainer = document.getElementById('new-ticket-container')
         this.ticketForm = document.getElementById('new-ticket-form')
         this.body = document.querySelector('body')
-        
+        this.body.addEventListener('blur', this.updateTicket.bind(this), true)
+
     }
 
     findOrCreateCustomer(e) {
         e.preventDefault()
+    }
+
+    createTicketItem(e) {
+        e.preventDefault()
+        const value = newTicketItem.value
+        this.adapter.createTicket(value).then(ticket => {
+            this.tickets.push(new Ticket(ticket))
+            this.newTicketItem.value = ''
+            this.render()
+        })
+
     }
 
     /*if findCustomer => getCustomer(){
