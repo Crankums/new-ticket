@@ -20,10 +20,37 @@ class App {
             name: customerName,
             email: customerEmail
         }
-
         this.customerAdapter.fetchCustomer(params)
         .then(jobj => this.currentCustomer = new Customer(jobj))
+    }
 
-        
+    renderCurrentCustomer(){
+        this.customerContainer.innerHTML = this.currentCustomer.customerInfoHTML()
+    }
+
+    ticketLisBindingsAndEventListeners(){
+        const lis = this.ticketContainer.querySelectorAll('li')
+        for (let li of lis) {
+            li.addEventListener('click', this.handleShowingTicket.bind(this))
+        }
+
+    }
+
+    handleShowingTicket(){
+        const selectedLi
+        const selectTicketObj = this.currentCustomer.tickets.find(t => t.id)
+        // this.ticketContainer.innerHTML = 
+        const newButton = document.createElement('button')
+        newButton.innerText
+        newButton.addEventListener('click', e => this.renderCustomerTickets())
+        this.ticketContainer.appendChild(newButton)
+    }
+
+    renderCustomerTickets(){
+        this.ticketContainer.innerHTML = `
+        <ul>
+        ${this.currentCustomer.tickets.map(t => t.ticketLi())}
+        </ul>
+        <button id='new-ticket-button'> NAME </button>`
     }
 }
