@@ -1,18 +1,14 @@
 class CustomersAdapter {
     constructor() {
-        this.baseUrl = 'http:localhost:3000/api/v1/customers'
+        this.baseUrl = 'http:localhost:3000/api/v1/findCustomers'
     }
 
-    getCustomers() {
-        return fetch(this.baseUrl)
-        .then(res => res.json())
+    fetchCustomer(params){
+        fetch('http://localhost3000/findCustomer', {
+        method: 'GET',
+        body: JSON.stringify(params)
+        }) 
+        .then(res => return res.json())
     }
-
-    // post and update methods
-
-    // createCustomers(value){}
-
-    // updateCustomers(value){}
-
     
 }
