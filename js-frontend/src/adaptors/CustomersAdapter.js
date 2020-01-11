@@ -8,7 +8,7 @@ class CustomersAdapter {
         method: 'GET',
         body: JSON.stringify(params)
         }) 
-        .then(res => return res.json())
+        .then(res => res.json())
     }
     
 }

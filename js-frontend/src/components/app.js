@@ -37,7 +37,7 @@ class App {
     }
 
     handleShowingTicket(){
-        const selectedLi
+        // const selectedLi = 
         const selectTicketObj = this.currentCustomer.tickets.find(t => t.id)
         // this.ticketContainer.innerHTML = 
         const newButton = document.createElement('button')
