@@ -4,7 +4,7 @@ class App {
         this.ticketContainer = document.querySelector('ticket-container')
         this.customerAdapter = new CustomersAdapter
         this.currentCustomer
-        initBindingsAndEventListeners()
+        this.initBindingsAndEventListeners()
     }
 
     initBindingsAndEventListeners(){
