@@ -8,6 +8,8 @@ class CustomerController < ApplicationController
     def find_or_create_customer
         if !@customer = Customer.find_by_name(params[:name])
             @customer = Customer.create(params)
+        end
+        render json: @customer, status: 200
     end
 
     def show
@@ -39,6 +41,6 @@ class CustomerController < ApplicationController
     private
 
     def customer_params
-        params.require(:customer).permit(:name, :phone, :email)
+        params.require(:customer).permit(:name, :email)
     end
 end
