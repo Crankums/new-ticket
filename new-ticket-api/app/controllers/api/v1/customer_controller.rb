@@ -5,6 +5,11 @@ class CustomerController < ApplicationController
         render json: @customers, status: 200
     end
 
+    def find_or_create_customer
+        if !@customer = Customer.find_by_name(params[:name])
+            @customer = Customer.create(params)
+    end
+
     def show
         @customer = Customer.find(params[:id])
 
