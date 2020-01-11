@@ -1,6 +1,6 @@
 class TicketsAdapter {
     constructor() {
-        this.baseUrl = 'http:localhost:3000/api/v1/findTickets'
+        this.baseUrl = 'http:localhost:3000/api/v1/tickets'
     }
 
     fetchTickets() {

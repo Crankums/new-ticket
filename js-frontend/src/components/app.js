@@ -24,6 +24,7 @@ class App {
         }
         this.customerAdapter.fetchCustomer(params)
         .then(jobj => this.currentCustomer = new Customer(jobj))
+        
     }
 
     renderCurrentCustomer(){
