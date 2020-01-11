@@ -4,7 +4,7 @@ class CustomersAdapter {
     }
 
     fetchCustomer(params){
-        fetch('http://localhost3000/findCustomer', {
+        fetch('http://localhost3000/api/vi/findCustomers', {
         method: 'GET',
         body: JSON.stringify(params)
         }) 
