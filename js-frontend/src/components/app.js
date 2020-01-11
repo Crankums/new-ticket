@@ -8,7 +8,7 @@ class App {
     }
 
     initBindingsAndEventListeners(){
-        this.form = document.querySelector('customer-form')
+        this.form = document.querySelector('#customer-form')
         this.form.addEventListener('submit', this.handleCustomerSubmit.bind(this))
     }
 
