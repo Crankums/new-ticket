@@ -10,6 +10,8 @@ class App {
     initBindingsAndEventListeners(){
         this.form = document.querySelector('#customer-form')
         this.form.addEventListener('submit', this.handleCustomerSubmit.bind(this))
+        this.ticketForm = document.querySelector("ticket-form")
+        this.ticketForm.addEventListener('submit', this.handleTicketSubmit.bind(this))
     }
 
     handleCustomerSubmit(e) {
@@ -44,6 +46,11 @@ class App {
         newButton.innerText
         newButton.addEventListener('click', e => this.renderCustomerTickets())
         this.ticketContainer.appendChild(newButton)
+    }
+
+    handleTicketSubmit(){
+        e.preventDefault()
+
     }
 
     renderCustomerTickets(){
