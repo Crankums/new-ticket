@@ -4,7 +4,7 @@ class Form {
     }
 
     renderInputs() {
-        let formContainer = document.getElementById('new-ticket-form')
+        let formContainer = document.createElement(div)
 // 2 ways to do this: 
 // 1. Create each element individually and set their attributes
 // 2. Create an iterator 

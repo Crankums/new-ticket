@@ -2,7 +2,7 @@ class Customer {
     constructor(customerObj){
         this.name = customerObj.name
         this.email = customerObj.email
-        this.tickets  =customerObj.tickets.map(t => new Ticket(t))
+        this.tickets = customerObj.tickets.map(t => new Ticket(t))
     }
 
     customerInfoHTML(){
