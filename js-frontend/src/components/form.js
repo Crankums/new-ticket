@@ -3,25 +3,17 @@ class Form {
         
     }
 
-    renderInputs() {
-        let formContainer = document.createElement(div)
-// 2 ways to do this: 
-// 1. Create each element individually and set their attributes
-// 2. Create an iterator 
-        for (let key in object) {
-            let input =  document.createElement('input')
-            input.id = `${key}`
-            formContainer.appendChild('input')
-        }   
-
-    }
-
-    renderForm() {
-        this.renderInputs()
-        let submit = document.createElement('submit')
-        submit.setAttribute('value', 'Submit Ticket')
-        formContainer.appendChild('submit')
-    }
+    inputHMTL() {
+        return(`
+            <div id='ticket-form'>
+                <form>
+                <input type="text" name="service-input" id="service-input">
+                <input type="number" name="price" id="price">
+                <input type="submit" value="Add to Ticket">
+                </form>
+            </div>
+        `)
+    }   
 }
 
 
