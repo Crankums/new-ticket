@@ -9,14 +9,15 @@ class App {
     }
 
     initBindingsAndEventListeners(){
-        this.form = document.querySelector('#customer-form')
-        this.form.addEventListener('submit', this.handleCustomerSubmit.bind(this))
+        this.formContainer = document.querySelector('#customer-form')
+        this.formContainer.addEventListener('submit', this.handleCustomerSubmit.bind(this))
     }
 
     handleCustomerSubmit(e) {
         e.preventDefault()
-        const customerName = this.form.children[0].value
-        const customerEmail = this.form.children[1].value
+        const inputs = this.formContainer.querySelectorAll("input")
+        const customerName = inputs[0].value
+        const customerEmail = inputs[1].value
         const params = {
             name: customerName,
             email: customerEmail
