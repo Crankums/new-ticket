@@ -1,6 +1,7 @@
 class Form {
     constructor() {
         this.currentTicket = false
+        this.ticketAdapter = new ticketAdapter
     }
     formBindingsAndEventListeners(){
         this.ticketForm = document.querySelector("#ticket-form")
@@ -33,7 +34,16 @@ class Form {
             service: serviceItem,
             price: servicePrice
         }
-        this.currentTicket= true
+        if (this.currentTicket) {
+            this.ticketAdapter.updateTicket(params)
+        } else {
+            this.ticketAdapter.createTicket(params)
+        } 
+        this.ticketForm.appendChild(this.serviceInputHTML)
+        const submit = document.createElement("submit")
+        submit.setAttribute(id= "save-ticket")
+
+
         // send post request through ticketsAdaptor to Ticket db
         // if ticket already exists, adds to current ticket
         // add contents of ticket
