@@ -1,4 +1,4 @@
-class TicketsController < ApplicationController
+class Api::V1::TicketsController < ApplicationController
     def index
         @tickets = Ticket.all
 
