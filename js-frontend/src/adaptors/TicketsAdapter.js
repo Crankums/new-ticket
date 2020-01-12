@@ -10,4 +10,11 @@ class TicketsAdapter {
         })
         .then(res => res.json())
     }
+
+    createTickets() {
+        fetch(this.baseUrl, {
+            method: "POST",
+            body: JSON.stringify(params)
+        })
+    }
 }

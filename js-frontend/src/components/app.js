@@ -4,14 +4,13 @@ class App {
         this.ticketContainer = document.querySelector('ticket-container')
         this.customerAdapter = new CustomersAdapter
         this.currentCustomer
+        this.ticketFormInputs = new Form
         this.initBindingsAndEventListeners()
     }
 
     initBindingsAndEventListeners(){
         this.form = document.querySelector('#customer-form')
         this.form.addEventListener('submit', this.handleCustomerSubmit.bind(this))
-        this.ticketForm = document.querySelector("ticket-form")
-        this.ticketForm.addEventListener('submit', this.handleTicketSubmit.bind(this))
     }
 
     handleCustomerSubmit(e) {
@@ -23,8 +22,7 @@ class App {
             email: customerEmail
         }
         this.customerAdapter.fetchCustomer(params)
-        .then(jobj => this.currentCustomer = new Customer(jobj))
-        
+        .then(jobj => this.currentCustomer = new Customer(jobj))        
     }
 
     renderCurrentCustomer(){
@@ -47,11 +45,6 @@ class App {
         newButton.innerText
         newButton.addEventListener('click', e => this.renderCustomerTickets())
         this.ticketContainer.appendChild(newButton)
-    }
-
-    handleTicketSubmit(){
-        e.preventDefault()
-
     }
 
     renderCustomerTickets(){
