@@ -5,41 +5,41 @@ class Form {
     }
     formBindingsAndEventListeners(){
         this.ticketForm = document.querySelector("#ticket-form")
-        this.serviceInput = document.querySelector("#service-input")
+        this.laborInput = document.querySelector("#labor-input")
     }
     renderTicketForm() {
         const ticketForm = document.createElement("div")
         const ticketBtn = document.createElement("button")
         ticketForm.setAttribute('id', 'ticket-form')
-        ticketBtn.setAttribute("form", "service-input")
+        ticketBtn.setAttribute("form", "labor-input")
         ticketBtn.setAttribute("value", "Add to Ticket")
-        ticketForm.innerHTML = serviceInputHTML()
+        ticketForm.innerHTML = laborInputHTML()
         ticketForm.appendChild(ticketBtn)
         ticketBtn.onclick(this.handleClick)
     }   
 
-    serviceInputHTML(){
+    laborInputHTML(){
         return (`
-            <form id="service-input">
-                <input type="text" name="service-item" id="service-item">
-                <input type="number" name="service-price" id="service-price">
+            <form id="labor-input">
+                <input type="text" name="labor-item" id="labor-item">
+                <input type="number" name="labor-price" id="labor-price">
             </form>
         `)
     }
 
     handleClick(e){
-        const serviceItem = this.serviceInput.children[0].value
-        const servicePrice = this.serviceInput.children[1].value
+        const laborItem = this.laborInput.children[0].value
+        const laborPrice = this.laborInput.children[1].value
         const params = {
-            service: serviceItem,
-            price: servicePrice
+            labor: laborItem,
+            price: laborPrice
         }
         if (this.currentTicket) {
             this.ticketAdapter.updateTicket(params)
         } else {
             this.ticketAdapter.createTicket(params)
         } 
-        this.ticketForm.appendChild(this.serviceInputHTML)
+        this.ticketForm.appendChild(this.laborInputHTML)
         const submit = document.createElement("submit")
         submit.setAttribute(id= "save-ticket")
 
