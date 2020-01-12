@@ -38,11 +38,13 @@ class Form {
             this.ticketAdapter.updateTicket(params)
         } else {
             this.ticketAdapter.createTicket(params)
+            this.currentTicket = true
+            const submit = document.createElement("submit")
+            submit.setAttribute(id= "save-ticket")
+            submit.setAttribute(value = "Save Ticket")
         } 
         this.ticketForm.appendChild(this.laborInputHTML)
-        const submit = document.createElement("submit")
-        submit.setAttribute(id= "save-ticket")
-
+        this.ticketForm.appendChild(submit)
 
         // send post request through ticketsAdaptor to Ticket db
         // if ticket already exists, adds to current ticket
