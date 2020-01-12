@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Customer.destroy_all
+Ticket.destroy_all
+
+Customer.create(name: "grank", email: "grank@grank.com")
+Ticket.create(parts: "tire", labor: "tire install", price: 20, customer_id: 1)

@@ -23,8 +23,7 @@ ActiveRecord::Schema.define(version: 2019_12_20_043415) do
   create_table "customers", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "phone"
-    t.string "bikes"
+    t.string "tickets"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -34,7 +33,6 @@ ActiveRecord::Schema.define(version: 2019_12_20_043415) do
     t.string "labor"
     t.string "price"
     t.integer "customer_id"
-    t.integer "bike_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

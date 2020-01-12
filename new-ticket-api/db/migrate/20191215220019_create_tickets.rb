@@ -5,8 +5,6 @@ class CreateTickets < ActiveRecord::Migration[6.0]
       t.string :labor
       t.string :price
       t.integer :customer_id
-      t.integer :bike_id
-
       t.timestamps
     end
   end
