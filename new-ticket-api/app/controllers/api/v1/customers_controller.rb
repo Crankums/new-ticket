@@ -6,11 +6,11 @@ class Api::V1::CustomersController < ApplicationController
     end
 
     def find_or_create_customer
-        if params[:id]
-            @customer = Customer.find_by(params[:id])
-        else
-            @customer = Customer.create(customer_params)
-        end
+        @customer = Customer.find_by(name: customer_params[:name])
+        # if !@customer.email
+        #     @customer.email = params[:email]
+        # end
+
         render json: @customer, status: 200
     end
 
