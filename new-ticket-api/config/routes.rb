@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :tickets
       resources :customers
+      get 'findCustomer', to: 'find_or_create_customer'
     end
   end
 end
