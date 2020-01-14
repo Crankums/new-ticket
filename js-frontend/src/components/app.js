@@ -22,6 +22,7 @@ class App {
             name: customerName,
             email: customerEmail
         }
+        debugger
         this.customerAdapter.fetchCustomer(params)
         .then(jobj => this.currentCustomer = new Customer(jobj))        
     }
