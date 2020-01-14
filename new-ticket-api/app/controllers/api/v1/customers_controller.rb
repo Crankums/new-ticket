@@ -6,7 +6,7 @@ class Api::V1::CustomersController < ApplicationController
     end
 
     def find_or_create_customer
-        @customer = Customer.find_by(name: customer_params[:name])
+        @customer = Customer.find_or_create_by(name: customer_params[:name], email: customer_params[:email])
         # if !@customer.email
         #     @customer.email = params[:email]
         # end

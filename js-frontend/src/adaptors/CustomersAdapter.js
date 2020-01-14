@@ -1,6 +1,6 @@
 class CustomersAdapter {
     constructor() {
-        this.baseUrl = 'http:localhost:3000/api/v1/customers'
+        this.baseUrl = 'http:localhost:3000/api/v1/findCustomer'
     }
     // createCustomer(){fetch(this.baseUrl, {
     //     method: "POST",
@@ -11,11 +11,12 @@ class CustomersAdapter {
     // })
     // .then(res => res.json())}
 
-    // getCustomer(){}
+    // getCustomer(){
+    // }
     
 
     fetchCustomer(params){
-        fetch(this.baseUrl, {
+       return fetch(this.baseUrl, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -23,7 +24,6 @@ class CustomersAdapter {
         body: JSON.stringify(params)
         })
         .then(res => res.json())
-        .then(json => console.log(json))
     }
     
 }

@@ -4,8 +4,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :tickets
       resources :customers
-      get '/findCustomer' => 'customers#find_or_create_customer'
-      # post '/findCustomer' => 'customers#find_or_create_by_name'
+      # get '/findCustomer' => 'customers#find_or_create_customer'
+      post '/findCustomer' => 'customers#find_or_create_customer'
     end
   end
 end

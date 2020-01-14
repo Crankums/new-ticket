@@ -1,7 +1,7 @@
 class App {
     constructor() {
-        this.customerContainer = document.querySelector('customer-container')
-        this.ticketContainer = document.querySelector('ticket-container')
+        this.customerContainer = document.querySelector('#customer-container')
+        this.ticketContainer = document.querySelector('#ticket-container')
         this.customerAdapter = new CustomersAdapter
         this.currentCustomer
         this.ticketFormInputs = new Form
@@ -23,7 +23,10 @@ class App {
             email: customerEmail
         }
         this.customerAdapter.fetchCustomer(params)
-        .then(jobj => this.currentCustomer = new Customer(jobj))        
+        .then(jobj => {
+            this.currentCustomer = new Customer(jobj)
+            this.renderCurrentCustomer()
+        })        
     }
 
     renderCurrentCustomer(){
