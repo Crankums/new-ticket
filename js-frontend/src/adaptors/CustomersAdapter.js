@@ -4,7 +4,7 @@ class CustomersAdapter {
     }
 
     fetchCustomer(params){
-        fetch(this.baseUrl) 
+        fetch(this.baseUrl)
         .then(res => res.json())
     }
     
