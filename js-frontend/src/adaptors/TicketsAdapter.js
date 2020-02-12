@@ -15,7 +15,7 @@ class TicketsAdapter {
     }
 
     createTickets() {
-        fetch(this.baseUrl, {
+        return fetch(this.baseUrl, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -25,7 +25,7 @@ class TicketsAdapter {
     }
 
     updateTickets() {
-        fetch(this.baseUrl, {
+        return fetch(this.baseUrl, {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json'
