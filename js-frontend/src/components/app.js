@@ -10,11 +10,12 @@ class App {
 
     initBindingsAndEventListeners(){
         this.formContainer = document.querySelector('#customer-form')
-        this.formContainer.addEventListener('submit', this.handleCustomerSubmit.bind(this))
+        this.custBtn = this.formContainer.querySelector("button")
+        this.custBtn.addEventListener('click', this.handleCustomerSubmit.bind(this))
     }
 
     handleCustomerSubmit(e) {
-        e.preventDefault()
+        // e.preventDefault()
         const inputs = this.formContainer.querySelectorAll("input")
         const customerName = inputs[0].value
         const customerEmail = inputs[1].value
@@ -31,6 +32,8 @@ class App {
 
     renderCurrentCustomer(){
         this.customerContainer.innerHTML = this.currentCustomer.customerInfoHTML()
+        // append(this.currentCustomer.customerInfoHTML())
+    
     }
 
     ticketLisBindingsAndEventListeners(){

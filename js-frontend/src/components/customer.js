@@ -12,6 +12,7 @@ class Customer {
             <p> ${this.id}</p>
             <p> Name: ${this.name} </p>
             <p> Email: ${this.email} </p>
+            <p> tix: ${this.tickets} </p>
         </div>`)
     }
 }
