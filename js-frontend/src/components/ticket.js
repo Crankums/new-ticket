@@ -1,13 +1,14 @@
 class Ticket {
     constructor(ticketObj){
         this.id = ticketObj.id
-        this.item = ticketObj.item
+        this.parts = ticketObj.parts
+        this.labor = ticketObj.labor
         this.price = ticketObj.price
     }
 
     ticketLi(){
         return(`
-        <li> >${this.id} </li>
+        <li data-id=${this.id} class="ticket-min"> ${this.id} </li>
         `)
     }
 
@@ -16,7 +17,8 @@ class Ticket {
             <div data-id=${this.id} class='ticket'>
                 <ul>
                     <li> id: ${this.id} </li>
-                    <li> item: ${this.item} </li>
+                    <li> parts: ${this.parts} </li>
+                    <li> labor: ${this.labor} </li>
                     <li> price: ${this.price} </li>
                 </ul>
             </div>        
