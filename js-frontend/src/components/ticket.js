@@ -7,13 +7,13 @@ class Ticket {
 
     ticketLi(){
         return(`
-        <li> data-id=${this.id}>${this.id} </li>
+        <li> >${this.id} </li>
         `)
     }
 
     ticketHTML(){
         return(`
-            <div class='ticket'>
+            <div data-id=${this.id} class='ticket'>
                 <ul>
                     <li> id: ${this.id} </li>
                     <li> item: ${this.item} </li>

@@ -27,6 +27,7 @@ class App {
         .then(jobj => {
             this.currentCustomer = new Customer(jobj)
             this.renderCurrentCustomer()
+            this.renderCustomerTickets()
         })        
     }
 
@@ -34,6 +35,12 @@ class App {
         this.customerContainer.innerHTML = this.currentCustomer.customerInfoHTML()
         // append(this.currentCustomer.customerInfoHTML())
     
+    }
+
+    renderCustomerTickets(){
+        this.ticketContainer.innerHTML = `
+        ${this.currentCustomer.tickets.map(t => t.ticketHTML())}
+        `  
     }
 
     ticketLisBindingsAndEventListeners(){
@@ -49,16 +56,8 @@ class App {
         const selectTicketObj = this.currentCustomer.tickets.find(t => t.id)
         // this.ticketContainer.innerHTML = 
         const newButton = document.createElement('button')
-        newButton.innerText
+        newButton.innerText ="Create New Ticket"
         newButton.addEventListener('click', e => this.renderCustomerTickets())
         this.ticketContainer.appendChild(newButton)
-    }
-
-    renderCustomerTickets(){
-        this.ticketContainer.innerHTML = `
-        <ul>
-        ${this.currentCustomer.tickets.map(t => t.ticketLi())}
-        </ul>
-        <button id='new-ticket-button'> NAME </button>`
     }
 }
