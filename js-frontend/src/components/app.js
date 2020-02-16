@@ -56,9 +56,9 @@ class App {
         const selectedLi = e.target
         const selectTicketObj = this.currentCustomer.tickets.find(t => t.id)
         selectedLi.innerHTML = selectTicketObj.ticketHTML()
-        const newButton = document.createElement('button')
-        newButton.innerText ="Create New Ticket"
-        newButton.addEventListener('click', e => this.renderCustomerTickets())
-        this.ticketContainer.appendChild(newButton)
+        // const newButton = document.createElement('button')
+        // newButton.innerText ="Create New Ticket"
+        // newButton.addEventListener('click', e => this.renderCustomerTickets())
+        // this.ticketContainer.appendChild(newButton)
     }
 }
