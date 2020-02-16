@@ -10,3 +10,4 @@ Ticket.destroy_all
 
 Customer.create(name: "grank", email: "grank@grank.com")
 Ticket.create(parts: "tire", labor: "tire install", price: 20, customer_id: 1)
+Ticket.create(parts: "chain", labor: "chain install", price: 15, customer_id: 1)

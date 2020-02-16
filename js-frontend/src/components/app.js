@@ -54,7 +54,8 @@ class App {
 
     handleShowingTicket(e){
         const selectedLi = e.target
-        const selectTicketObj = this.currentCustomer.tickets.find(t => t.id)
+        let selectTicketObj = this.currentCustomer.tickets.find(t => t.id === parseInt(selectedLi.dataset.id, 10))
+        debugger
         selectedLi.innerHTML = selectTicketObj.ticketHTML()
         // const newButton = document.createElement('button')
         // newButton.innerText ="Create New Ticket"
