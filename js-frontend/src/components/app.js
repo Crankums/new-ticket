@@ -52,10 +52,21 @@ class App {
 
     }
 
+    toggle() {
+        const selectedLi = e.target
+        // if selectedLi class == ticket-min
+        // handleShowingTicket, class = ticket-max
+        // else
+        // renders ticket-li, class ticket-min-max
+        // end
+
+    }
+
     handleShowingTicket(e){
         const selectedLi = e.target
         let selectTicketObj = this.currentCustomer.tickets.find(t => t.id === parseInt(selectedLi.dataset.id, 10))
         selectedLi.innerHTML = selectTicketObj.ticketHTML()
+        // either setAttribute or classList ('.ticket-max')
         const newButton = document.createElement('button')
         newButton.innerText ="Delete Ticket"
         newButton.addEventListener('click', e => this.deleteCustomerTickets(e))
