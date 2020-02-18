@@ -45,7 +45,7 @@ class App {
     }
 
     ticketLisBindingsAndEventListeners(){
-        const lis = this.ticketContainer.querySelectorAll('li')
+        const lis = this.ticketContainer.querySelectorAll('.ticket-min')
         for (let li of lis){
         li.addEventListener('click', this.handleShowingTicket.bind(this))
         }
@@ -58,11 +58,11 @@ class App {
         selectedLi.innerHTML = selectTicketObj.ticketHTML()
         const newButton = document.createElement('button')
         newButton.innerText ="Delete Ticket"
-        newButton.addEventListener('click', e => this.deleteCustomerTickets())
+        newButton.addEventListener('click', e => this.deleteCustomerTickets(e))
         this.ticketContainer.appendChild(newButton)
     }
 
     deleteCustomerTickets(e){
-        
+
     }
 }

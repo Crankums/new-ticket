@@ -34,5 +34,15 @@ class TicketsAdapter {
         })
     }
 
+    deleteTickets(){
+        return fetch(this.baseUrl, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(params)
+        })
+    }
+
     // is an update method necessary? if ticket is already created, otherwise updates and adds a line
 }
