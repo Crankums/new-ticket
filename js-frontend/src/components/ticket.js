@@ -13,16 +13,12 @@ class Ticket {
     }
 
     ticketHTML(){
-        return(`
-            <div data-id=${this.id} class='ticket'>
-                <ul>
-                    <p> id: ${this.id} </p>
-                    <p> parts: ${this.parts} </p>
-                    <p> labor: ${this.labor} </p>
-                    <p> price: ${this.price} </p>
-                </ul>
-            </div>        
-        `)
+        return(`<div data-id=${this.id} class='ticket'>
+                <p> id: ${this.id} </p>
+                <p> parts: ${this.parts} </p>
+                <p> labor: ${this.labor} </p>
+                <p> price: ${this.price} </p>
+            </div>`)
     }
 
     
