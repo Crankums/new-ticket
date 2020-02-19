@@ -40,8 +40,10 @@ class App {
     }
 
     renderCustomerTickets(){
-        // ticketUL then line below populates it
-        this.ticketContainer.innerHTML = `${this.currentCustomer.tickets.map(t => t.ticketLi())}`
+        const ul = document.createElement('ul')
+        ul.setAttribute('id', 'ticket-list')
+        this.ticketContainer.appendChild(ul)
+        ul.innerHTML = `${this.currentCustomer.tickets.map(t => t.ticketLi()).join('')}`
     }
 
     ticketLisBindingsAndEventListeners(){
@@ -67,20 +69,21 @@ class App {
         
         let selectTicketObj = this.currentCustomer.tickets.find(t => t.id === parseInt(selectedLi.dataset.id, 10))
         selectedLi.innerHTML = selectTicketObj.ticketHTML()
-        // either setAttribute or classList ('.ticket-max')
-
-        const ticketFields = this.ticketContainer.querySelectorAll('.ticket')
-        const delBtn = document.createElement('button')
-        delBtn.innerText ="Delete Ticket"
-        delBtn.addEventListener('click', e => this.deleteCustomerTickets(e))
-        for (let li of ticketFields){
-            li.append(delBtn)
-        }}
+        const delBtns = document.querySelectorAll("#delBtn")
+        for (let delBtn of delBtns) {
+            delBtn.addEventListener('click', e=> this.deleteCustomerTickets(e))
+        }
+    }
 
     deleteCustomerTickets(e){
+        e.stopPropagation()
+        console.log("deleting customer")
         const params = e.target.dataset.id
         // convert to int
-        debugger
         this.ticketsAdapter.deleteTickets(params)
+    }
+
+    renderNewTicketForm(){
+
     }
 }

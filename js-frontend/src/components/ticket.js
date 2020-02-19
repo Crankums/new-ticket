@@ -20,12 +20,11 @@ class Ticket {
     }
 
     ticketHTML(){
-        return(`<div data-id=${this.id} class='ticket'>
-                <p> Ticket Number: ${this.id} </p>
+        return(`<p> Ticket Number: ${this.id} </p>
                 <p> Parts: ${this.parts} </p>
                 <p> Labor: ${this.labor} </p>
                 <p> Price: ${this.price} </p>
-            </div>`)
+                <button type="button" id="delBtn">Delete Ticket</button>`)
     }
 
     
