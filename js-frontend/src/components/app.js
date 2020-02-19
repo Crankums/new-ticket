@@ -70,10 +70,10 @@ class App {
         selectedLi.innerHTML = selectTicketObj.ticketHTML()
         // either setAttribute or classList ('.ticket-max')
         const ticketField = this.ticketContainer.querySelector('.ticket-min')
-        const newButton = document.createElement('button')
-        newButton.innerText ="Delete Ticket"
-        newButton.addEventListener('click', e => this.deleteCustomerTickets(e))
-        ticketField.appendChild(newButton)
+        const delBtn = document.createElement('button')
+        delBtn.innerText ="Delete Ticket"
+        delBtn.addEventListener('click', e => this.deleteCustomerTickets(e))
+        ticketField.appendChild(delBtn)
     }
 
     deleteCustomerTickets(e){
