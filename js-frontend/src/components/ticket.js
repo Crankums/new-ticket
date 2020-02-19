@@ -6,6 +6,13 @@ class Ticket {
         this.price = ticketObj.price
     }
 
+    ticketUl(){
+        const ul = document.createElement('ul')
+        ul.setAttribute('id', 'ticket-list')
+        this.ticketContainer.appendChild(ul)
+
+    }
+
     ticketLi(){
         return(`
         <li data-id=${this.id} class="ticket-min"> Ticket Number: ${this.id} </li>

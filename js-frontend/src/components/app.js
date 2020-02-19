@@ -40,6 +40,7 @@ class App {
     }
 
     renderCustomerTickets(){
+        // ticketUL then line below populates it
         this.ticketContainer.innerHTML = `${this.currentCustomer.tickets.map(t => t.ticketLi())}`
     }
 
