@@ -3,6 +3,7 @@ class App {
         this.customerContainer = document.querySelector('#customer-container')
         this.ticketContainer = document.querySelector('#ticket-container')
         this.customerAdapter = new CustomersAdapter
+        this.TicketsAdapter = new TicketsAdapter
         this.currentCustomer
         this.ticketFormInputs = new Form
         this.initBindingsAndEventListeners()
@@ -64,16 +65,21 @@ class App {
 
     handleShowingTicket(e){
         const selectedLi = e.target
+        
         let selectTicketObj = this.currentCustomer.tickets.find(t => t.id === parseInt(selectedLi.dataset.id, 10))
         selectedLi.innerHTML = selectTicketObj.ticketHTML()
         // either setAttribute or classList ('.ticket-max')
+        const ticketField = this.ticketContainer.querySelector('.ticket-min')
         const newButton = document.createElement('button')
         newButton.innerText ="Delete Ticket"
         newButton.addEventListener('click', e => this.deleteCustomerTickets(e))
-        this.ticketContainer.appendChild(newButton)
+        ticketField.appendChild(newButton)
     }
 
     deleteCustomerTickets(e){
-
+        const params = e.target.dataset.id
+        // convert to int
+        // 
+        this.ticketsAdapter.deleteTickets(params)
     }
 }
