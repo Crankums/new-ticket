@@ -40,6 +40,9 @@ class App {
     }
 
     renderCustomerTickets(){
+        const formBtn = document.createElement('button')
+        formBtn.setAttribute('id', 'form-button')
+        // attach to top of container, add eventlistener to fire form
         const ul = document.createElement('ul')
         ul.setAttribute('id', 'ticket-list')
         this.ticketContainer.appendChild(ul)
