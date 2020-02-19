@@ -1,39 +1,39 @@
 class Api::V1::CustomersController < ApplicationController
     def index
-        @customers = Customer.all
+        customers = Customer.all
 
-        render json: @customers, status: 200
+        render json: customers, status: 200
     end
 
     def find_or_create_customer
-        @customer = Customer.find_or_create_by(name: customer_params[:name], email: customer_params[:email])
-        render json: @customer, status: 200
+        customer = Customer.find_or_create_by(name: customer_params[:name], email: customer_params[:email])
+        render json: customer, status: 200
     end
 
     def show
-        @customer = Customer.find(params[:id])
+        customer = Customer.find(params[:id])
         
-        render json: @customer, status: 200
+        render json: customer, status: 200
     end
 
     def create
-        @customer = Customer.create(customer_params)
+        customer = Customer.create(customer_params)
 
-        render json: @customer, status: 200
+        render json: customer, status: 200
     end
 
     def update
-        @customer = Customer.find(params[:id])
-        @customer.update(customer_params)
+        customer = Customer.find(params[:id])
+        customer.update(customer_params)
 
-        render json: @customer, status: 200
+        render json: customer, status: 200
     end
 
     def destroy
-        @customer = Customer.find(params[:id])
-        @customer.delete
+        customer = Customer.find(params[:id])
+        customer.delete
         
-        render json: {customerId: @customer.id}
+        render json: {customerId: customer.id}
     end
 
     private
