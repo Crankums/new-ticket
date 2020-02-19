@@ -79,7 +79,7 @@ class App {
     deleteCustomerTickets(e){
         const params = e.target.dataset.id
         // convert to int
-        // 
+        debugger
         this.ticketsAdapter.deleteTickets(params)
     }
 }

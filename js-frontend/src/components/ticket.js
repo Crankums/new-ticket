@@ -8,16 +8,16 @@ class Ticket {
 
     ticketLi(){
         return(`
-        <li data-id=${this.id} class="ticket-min"> ${this.id} </li>
+        <li data-id=${this.id} class="ticket-min"> Ticket Number: ${this.id} </li>
         `)
     }
 
     ticketHTML(){
         return(`<div data-id=${this.id} class='ticket'>
-                <p> id: ${this.id} </p>
-                <p> parts: ${this.parts} </p>
-                <p> labor: ${this.labor} </p>
-                <p> price: ${this.price} </p>
+                <p> Ticket Number: ${this.id} </p>
+                <p> Parts: ${this.parts} </p>
+                <p> Labor: ${this.labor} </p>
+                <p> Price: ${this.price} </p>
             </div>`)
     }
 
