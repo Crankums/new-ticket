@@ -40,15 +40,13 @@ class App {
     }
 
     renderCustomerTickets(){
-        this.ticketContainer.innerHTML = `
-        ${this.currentCustomer.tickets.map(t => t.ticketLi())}
-        `  
+        this.ticketContainer.innerHTML = `${this.currentCustomer.tickets.map(t => t.ticketLi())}`
     }
 
     ticketLisBindingsAndEventListeners(){
         const lis = this.ticketContainer.querySelectorAll('.ticket-min')
         for (let li of lis){
-        li.addEventListener('click', this.handleShowingTicket.bind(this))
+            li.addEventListener('click', this.handleShowingTicket.bind(this))
         }
 
     }
@@ -69,12 +67,14 @@ class App {
         let selectTicketObj = this.currentCustomer.tickets.find(t => t.id === parseInt(selectedLi.dataset.id, 10))
         selectedLi.innerHTML = selectTicketObj.ticketHTML()
         // either setAttribute or classList ('.ticket-max')
-        const ticketField = this.ticketContainer.querySelector('.ticket-min')
+
+        const ticketFields = this.ticketContainer.querySelectorAll('.ticket')
         const delBtn = document.createElement('button')
         delBtn.innerText ="Delete Ticket"
         delBtn.addEventListener('click', e => this.deleteCustomerTickets(e))
-        ticketField.appendChild(delBtn)
-    }
+        for (let li of ticketFields){
+            li.append(delBtn)
+        }}
 
     deleteCustomerTickets(e){
         const params = e.target.dataset.id
