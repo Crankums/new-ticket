@@ -14,7 +14,7 @@ class TicketsAdapter {
         .then(res => res.json())
     }
 
-    createTickets() {
+    createTickets(params) {
         return fetch(this.baseUrl, {
             method: "POST",
             headers: {
@@ -24,8 +24,8 @@ class TicketsAdapter {
         })
     }
 
-    updateTickets() {
-        return fetch(this.baseUrl, {
+    updateTickets(id) {
+        return fetch(this.baseUrl+"/"+id, {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json'
@@ -34,8 +34,8 @@ class TicketsAdapter {
         })
     }
 
-    deleteTickets(){
-        return fetch(this.baseUrl, {
+    deleteTickets(id){
+        return fetch(this.baseUrl+"/"+id, {
             method: "DELETE",
             headers: {
                 'Content-Type': 'application/json'

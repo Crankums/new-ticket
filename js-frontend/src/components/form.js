@@ -2,7 +2,10 @@ class Form {
     constructor() {
         this.currentTicket = false
         this.ticketAdapter = new TicketsAdapter
+        this.formsAdapter = new FormsAdapter
     }
+
+
     formBindingsAndEventListeners(){
         this.ticketForm = document.querySelector("#ticket-form")
         this.laborInput = document.querySelector("#labor-input")

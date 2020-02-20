@@ -2,6 +2,7 @@ class App {
     constructor() {
         this.customerContainer = document.querySelector('#customer-container')
         this.ticketContainer = document.querySelector('#ticket-container')
+        this.formContainer = document.querySelector('#form-container')
         this.customerAdapter = new CustomersAdapter
         this.TicketsAdapter = new TicketsAdapter
         this.currentCustomer
