@@ -2,7 +2,7 @@ class Form {
     constructor() {
         this.currentTicket = false
         this.ticketAdapter = new TicketsAdapter
-        this.formsAdapter = new FormsAdapter
+        // this.formsAdapter = new FormsAdapter
     }
 
 
