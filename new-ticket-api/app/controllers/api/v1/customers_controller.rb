@@ -1,7 +1,6 @@
 class Api::V1::CustomersController < ApplicationController
     def index
         customers = Customer.all
-
         render json: customers, status: 200
     end
 
@@ -12,7 +11,6 @@ class Api::V1::CustomersController < ApplicationController
 
     def show
         customer = Customer.find(params[:id])
-        
         render json: customer, status: 200
     end
 
