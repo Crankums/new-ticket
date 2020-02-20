@@ -2,7 +2,7 @@ class App {
     constructor() {
         this.customerContainer = document.querySelector('#customer-container')
         this.ticketContainer = document.querySelector('#ticket-container')
-        this.formContainer = document.querySelector('#form-container')
+        this.ticketForm = document.querySelector('#form-container')
         this.customerAdapter = new CustomersAdapter
         this.TicketsAdapter = new TicketsAdapter
         this.currentCustomer
@@ -43,12 +43,19 @@ class App {
     renderCustomerTickets(){
         const formBtn = document.createElement('button')
         formBtn.setAttribute('id', 'form-button')
+        formBtn.innerText= "Create New Ticket"
+        this.ticketForm.appendChild(formBtn)
+        formBtn.addEventListener('click', this.renderNewTicketForm())
         // attach to top of container, add eventlistener to fire form
         const ul = document.createElement('ul')
         ul.setAttribute('id', 'ticket-list')
         this.ticketContainer.appendChild(ul)
         ul.innerHTML = `${this.currentCustomer.tickets.map(t => t.ticketLi()).join('')}`
     }
+    renderNewTicketForm(){
+        console.log("new ticket form rendered")
+    }
+
 
     ticketLisBindingsAndEventListeners(){
         const lis = this.ticketContainer.querySelectorAll('.ticket-min')
@@ -63,11 +70,13 @@ class App {
         // if selectedLi class == ticket-min
         // handleShowingTicket, class = ticket-max
         // else
-        // renders ticket-li, class ticket-min-max
+        // renders ticket-li, class ticket-min
         // end
 
     }
+    minimizeTicket(e){
 
+    }
     handleShowingTicket(e){
         const selectedLi = e.target
         
@@ -85,9 +94,5 @@ class App {
         const params = e.target.dataset.id
         // convert to int
         this.ticketsAdapter.deleteTickets(params)
-    }
-
-    renderNewTicketForm(){
-
     }
 }
