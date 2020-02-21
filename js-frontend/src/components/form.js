@@ -2,12 +2,13 @@ class Form {
     constructor() {
         this.currentTicket = false
         this.ticketAdapter = new TicketsAdapter
+        this.formBindingsAndEventListeners()
     }
 
 
     formBindingsAndEventListeners(){
         this.ticketForm = document.querySelector("#ticket-form")
-        this.newTicketInput = document.querySelector("#new-ticket-input")
+        // this.newTicketInput = document.querySelector("#new-ticket-input")
     }
     // renderTicketForm() {
     //     const ticketForm = document.createElement("div")
@@ -28,10 +29,13 @@ class Form {
                 <p>Price: <input type="number" name="new-ticket-price" id="new-ticket-price"></p>
                 <button type="button" id="newTckBtn">Create New Ticket</button>
             </form>
-        `)
+        `
+        )
     }
 
     handleClick(e){
+        debugger
+        this.newTicketInput = document.querySelector('#new-ticket-input')
         const newParts = this.newTicketInput.children[0].value
         const newLabor = this.newTicketInput.children[1].value
         const newPrice = this.newTicketInput.children[2].value
@@ -45,13 +49,7 @@ class Form {
         } else {
             this.ticketAdapter.createTicket(params)
             this.currentTicket = true
-            const submit = document.createElement("submit")
-            submit.setAttribute(id= "save-ticket")
-            submit.setAttribute(value = "Save Ticket")
         } 
-        this.ticketForm.appendChild(this.laborInputHTML)
-        this.ticketForm.appendChild(submit)
-
         // send post request through ticketsAdaptor to Ticket db
         // if ticket already exists, adds to current ticket
         // add contents of ticket

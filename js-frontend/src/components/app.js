@@ -45,7 +45,7 @@ class App {
         formBtn.setAttribute('id', 'form-button')
         formBtn.innerText= "Create New Ticket"
         this.ticketForm.appendChild(formBtn)
-        formBtn.addEventListener('click', e => this.renderNewTicketForm())
+        formBtn.addEventListener('click', this.renderNewTicketForm.bind(this))
         // attach to top of container, add eventlistener to fire form
         const ul = document.createElement('ul')
         ul.setAttribute('id', 'ticket-list')
@@ -54,7 +54,9 @@ class App {
     }
     renderNewTicketForm(){
         
-        this.ticketForm.innerHTML = this.ticketFormInputs.newTicketInputHTML() 
+        this.ticketForm.innerHTML = this.ticketFormInputs.newTicketInputHTML()
+        this.newTckBtn = document.querySelector('#newTckBtn')
+        this.newTckBtn.addEventListener('click', this.ticketFormInputs.handleClick.bind(this))
     }
 
 
@@ -80,12 +82,11 @@ class App {
     }
     handleShowingTicket(e){
         const selectedLi = e.target
-        
         let selectTicketObj = this.currentCustomer.tickets.find(t => t.id === parseInt(selectedLi.dataset.id, 10))
         selectedLi.innerHTML = selectTicketObj.ticketHTML()
         const delBtns = document.querySelectorAll("#delBtn")
         for (let delBtn of delBtns) {
-            delBtn.addEventListener('click', e=> this.deleteCustomerTickets(e))
+            delBtn.addEventListener('click', this.deleteCustomerTickets.bind(this))
         }
     }
 
