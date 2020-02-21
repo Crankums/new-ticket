@@ -7,34 +7,38 @@ class Form {
 
     formBindingsAndEventListeners(){
         this.ticketForm = document.querySelector("#ticket-form")
-        this.laborInput = document.querySelector("#labor-input")
+        this.newTicketInput = document.querySelector("#new-ticket-input")
     }
-    renderTicketForm() {
-        const ticketForm = document.createElement("div")
-        const ticketBtn = document.createElement("button")
-        ticketForm.setAttribute('id', 'ticket-form')
-        ticketBtn.setAttribute("form", "labor-input")
-        ticketBtn.setAttribute("value", "Add to Ticket")
-        ticketForm.innerHTML = laborInputHTML()
-        ticketForm.appendChild(ticketBtn)
-        ticketBtn.onclick(this.handleClick)
-    }   
+    // renderTicketForm() {
+    //     const ticketForm = document.createElement("div")
+    //     const ticketBtn = document.createElement("button")
+    //     ticketForm.setAttribute('id', 'ticket-form')
+    //     ticketBtn.setAttribute("form", "labor-input")
+    //     ticketBtn.setAttribute("value", "Add to Ticket")
+    //     ticketForm.innerHTML = laborInputHTML()
+    //     ticketForm.appendChild(ticketBtn)
+    //     ticketBtn.onclick(this.handleClick)
+    // }   
 
-    laborInputHTML(){
+    newTicketInputHTML(){
         return (`
-            <form id="labor-input">
-                <input type="text" name="labor-item" id="labor-item">
-                <input type="number" name="labor-price" id="labor-price">
+            <form id="new-ticket-input" class="new-ticket-form">
+                <p>Parts: <input type="text" name="new-ticket-parts" id="new-ticket-parts"></p>
+                <p>Labor: <input type="text" name="new-ticket-labor" id="new-ticket-labor"></p>
+                <p>Price: <input type="number" name="new-ticket-price" id="new-ticket-price"></p>
+                <button type="button" id="newTckBtn">Create New Ticket</button>
             </form>
         `)
     }
 
     handleClick(e){
-        const laborItem = this.laborInput.children[0].value
-        const laborPrice = this.laborInput.children[1].value
+        const newParts = this.newTicketInput.children[0].value
+        const newLabor = this.newTicketInput.children[1].value
+        const newPrice = this.newTicketInput.children[2].value
         const params = {
-            labor: laborItem,
-            price: laborPrice
+            labor: newLabor,
+            price: newParts,
+            price: newPrice
         }
         if (this.currentTicket) {
             this.ticketAdapter.updateTicket(params)

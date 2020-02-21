@@ -45,7 +45,7 @@ class App {
         formBtn.setAttribute('id', 'form-button')
         formBtn.innerText= "Create New Ticket"
         this.ticketForm.appendChild(formBtn)
-        formBtn.addEventListener('click', this.renderNewTicketForm())
+        formBtn.addEventListener('click', e => this.renderNewTicketForm())
         // attach to top of container, add eventlistener to fire form
         const ul = document.createElement('ul')
         ul.setAttribute('id', 'ticket-list')
@@ -53,7 +53,8 @@ class App {
         ul.innerHTML = `${this.currentCustomer.tickets.map(t => t.ticketLi()).join('')}`
     }
     renderNewTicketForm(){
-        console.log("new ticket form rendered")
+        
+        this.ticketForm.innerHTML = this.ticketFormInputs.newTicketInputHTML() 
     }
 
 
