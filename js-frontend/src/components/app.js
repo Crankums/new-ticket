@@ -4,7 +4,7 @@ class App {
         this.ticketContainer = document.querySelector('#ticket-container')
         this.ticketForm = document.querySelector('#form-container')
         this.customerAdapter = new CustomersAdapter
-        this.TicketsAdapter = new TicketsAdapter
+        this.ticketsAdapter = new TicketsAdapter
         this.currentCustomer
         this.initBindingsAndEventListeners()
     }
@@ -52,10 +52,10 @@ class App {
         ul.innerHTML = `${this.currentCustomer.tickets.map(t => t.ticketLi()).join('')}`
     }
     renderNewTicketForm(){  
-        this.ticketFormInputs = new Form(this.currentCustomer)
+        this.ticketFormInputs = new Form
         this.ticketForm.innerHTML = this.ticketFormInputs.newTicketInputHTML()
-        this.newTckBtn = document.querySelector('#newTckBtn')
-        this.newTckBtn.addEventListener('click', this.ticketFormInputs.handleClick.bind(this.ticketFormInputs))
+        this.crtTckBtn = document.querySelector('#crtTckBtn')
+        this.crtTckBtn.addEventListener('click', this.handleCreateNewTicket.bind(this))
     }
 
 
@@ -96,4 +96,21 @@ class App {
         // convert to int
         this.ticketsAdapter.deleteTickets(params)
     }
+
+    handleCreateNewTicket(e){
+        this.newTicketInput = document.querySelector('#new-ticket-input')
+        const newParts = this.newTicketInput.children[0].value
+        const newLabor = this.newTicketInput.children[1].value
+        const newPrice = this.newTicketInput.children[2].value
+        
+        const ticket = {
+            parts: newParts,
+            labor: newLabor,
+            price: newPrice,
+            customer_id: this.currentCustomer.id
+        }
+        
+        this.ticketsAdapter.createTickets(ticket)
+        .then(this.renderCustomerTickets())
+    } 
 }
