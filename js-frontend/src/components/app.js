@@ -109,8 +109,9 @@ class App {
             price: newPrice,
             customer_id: this.currentCustomer.id
         }
-        
+        debugger
         this.ticketsAdapter.createTickets(ticket)
-        .then(this.renderCustomerTickets())
+
     } 
+
 }
