@@ -6,7 +6,6 @@ class App {
         this.customerAdapter = new CustomersAdapter
         this.TicketsAdapter = new TicketsAdapter
         this.currentCustomer
-        this.ticketFormInputs = new Form
         this.initBindingsAndEventListeners()
     }
 
@@ -53,6 +52,7 @@ class App {
         ul.innerHTML = `${this.currentCustomer.tickets.map(t => t.ticketLi()).join('')}`
     }
     renderNewTicketForm(){  
+        this.ticketFormInputs = new Form(this.currentCustomer)
         this.ticketForm.innerHTML = this.ticketFormInputs.newTicketInputHTML()
         this.newTckBtn = document.querySelector('#newTckBtn')
         this.newTckBtn.addEventListener('click', this.ticketFormInputs.handleClick.bind(this.ticketFormInputs))

@@ -1,5 +1,6 @@
 class Form {
-    constructor() {
+    constructor(customerObj) {
+        this.currentCustomer = customerObj
         this.currentTicket = false
         this.ticketAdapter = new TicketsAdapter
         this.formBindingsAndEventListeners()
