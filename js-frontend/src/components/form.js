@@ -11,6 +11,7 @@ class Form {
 
     formBindingsAndEventListeners(){
         this.custCont = document.querySelector("#customer-container")
+        this.ticketUL = document.querySelector("#ticket-list")
         // this.newTicketInput = document.querySelector("#new-ticket-input")
     }
     // renderTicketForm() {
@@ -32,34 +33,8 @@ class Form {
             Price: <input type="number" name="new-ticket-price" id="new-ticket-price">
                 <button type="button" id="newTckBtn">Create New Ticket</button>
             </form>
-        `
-        )
+        `)
     }
-
-    handleClick(e){
-        this.newTicketInput = document.querySelector('#new-ticket-input')
-        const newParts = this.newTicketInput.children[0].value
-        const newLabor = this.newTicketInput.children[1].value
-        const newPrice = this.newTicketInput.children[2].value
-        
-        const ticket = {
-            parts: newParts,
-            labor: newLabor,
-            price: newPrice,
-            customer_id: this.currentCustomer.id
-        }
-        debugger
-        this.ticketAdapter.createTickets(ticket)
-
-        // send post request through ticketsAdaptor to Ticket db
-        // if ticket already exists, adds to current ticket
-        // add contents of ticket
-        
-        // post an empty line of inputs
-        // then add submit button to save and finish ticket
-    } 
-
-
 }
 
 
