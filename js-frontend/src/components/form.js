@@ -3,11 +3,13 @@ class Form {
         this.currentTicket = false
         this.ticketAdapter = new TicketsAdapter
         this.formBindingsAndEventListeners()
+
     }
 
 
     formBindingsAndEventListeners(){
         this.ticketForm = document.querySelector("#ticket-form")
+        this.custCont = document.querySelector("#customer-container")
         // this.newTicketInput = document.querySelector("#new-ticket-input")
     }
     // renderTicketForm() {
@@ -24,9 +26,9 @@ class Form {
     newTicketInputHTML(){
         return (`
             <form id="new-ticket-input" class="new-ticket-form">
-                <p>Parts: <input type="text" name="new-ticket-parts" id="new-ticket-parts"></p>
-                <p>Labor: <input type="text" name="new-ticket-labor" id="new-ticket-labor"></p>
-                <p>Price: <input type="number" name="new-ticket-price" id="new-ticket-price"></p>
+            Parts: <input type="text" name="new-ticket-parts" id="new-ticket-parts">
+            Labor: <input type="text" name="new-ticket-labor" id="new-ticket-labor">
+            Price: <input type="number" name="new-ticket-price" id="new-ticket-price">
                 <button type="button" id="newTckBtn">Create New Ticket</button>
             </form>
         `
@@ -34,22 +36,20 @@ class Form {
     }
 
     handleClick(e){
-        debugger
+        const customerId = this.custCont.children[0].dataset.customer
         this.newTicketInput = document.querySelector('#new-ticket-input')
         const newParts = this.newTicketInput.children[0].value
         const newLabor = this.newTicketInput.children[1].value
         const newPrice = this.newTicketInput.children[2].value
-        const params = {
+        
+        const ticket = {
+            parts: newParts,
             labor: newLabor,
-            price: newParts,
-            price: newPrice
+            price: newPrice,
+            customer_id: parseInt(customerId)
         }
-        if (this.currentTicket) {
-            this.ticketAdapter.updateTicket(params)
-        } else {
-            this.ticketAdapter.createTicket(params)
-            this.currentTicket = true
-        } 
+        debugger
+        this.ticketAdapter.createTickets(ticket) 
         // send post request through ticketsAdaptor to Ticket db
         // if ticket already exists, adds to current ticket
         // add contents of ticket

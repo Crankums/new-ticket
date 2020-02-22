@@ -52,11 +52,10 @@ class App {
         this.ticketContainer.appendChild(ul)
         ul.innerHTML = `${this.currentCustomer.tickets.map(t => t.ticketLi()).join('')}`
     }
-    renderNewTicketForm(){
-        
+    renderNewTicketForm(){  
         this.ticketForm.innerHTML = this.ticketFormInputs.newTicketInputHTML()
         this.newTckBtn = document.querySelector('#newTckBtn')
-        this.newTckBtn.addEventListener('click', this.ticketFormInputs.handleClick.bind(this))
+        this.newTckBtn.addEventListener('click', this.ticketFormInputs.handleClick.bind(this.ticketFormInputs))
     }
 
 
@@ -68,16 +67,16 @@ class App {
 
     }
 
-    toggle() {
+    toggle(e) {
         const selectedLi = e.target
-        // if selectedLi class == ticket-min
-        // handleShowingTicket, class = ticket-max
-        // else
-        // renders ticket-li, class ticket-min
-        // end
-
+        if (selectedLi.className === "ticket-min"){
+            this.handleShowingTicket(e)
+        }
+        else {
+            this.handleHidingTicket(e)
+        }
     }
-    minimizeTicket(e){
+    handleHidingTicket(e){
 
     }
     handleShowingTicket(e){

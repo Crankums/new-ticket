@@ -8,7 +8,7 @@ class Customer {
 
     customerInfoHTML(){
         return(`
-        <div class='customer'>
+        <div class='customer' data-customer="${this.id}">
             <p> Customer ID: ${this.id}</p>
             <p> Name: ${this.name} </p>
             <p> Email: ${this.email} </p>

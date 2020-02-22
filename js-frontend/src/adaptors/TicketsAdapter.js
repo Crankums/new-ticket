@@ -14,13 +14,13 @@ class TicketsAdapter {
         .then(res => res.json())
     }
 
-    createTickets(params) {
+    createTickets(ticket) {
         return fetch(this.baseUrl, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(params)
+            body: JSON.stringify(ticket)
         })
     }
 
