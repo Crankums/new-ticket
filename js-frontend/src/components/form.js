@@ -1,15 +1,15 @@
 class Form {
     constructor(customerObj) {
         this.currentCustomer = customerObj
+        this.ticketContainer = document.querySelector('#ticket-container')
+        this.ticketForm = document.querySelector('#form-container')
         this.currentTicket = false
         this.ticketAdapter = new TicketsAdapter
         this.formBindingsAndEventListeners()
-
     }
 
 
     formBindingsAndEventListeners(){
-        this.ticketForm = document.querySelector("#ticket-form")
         this.custCont = document.querySelector("#customer-container")
         // this.newTicketInput = document.querySelector("#new-ticket-input")
     }
@@ -37,7 +37,6 @@ class Form {
     }
 
     handleClick(e){
-        const customerId = this.custCont.children[0].dataset.customer
         this.newTicketInput = document.querySelector('#new-ticket-input')
         const newParts = this.newTicketInput.children[0].value
         const newLabor = this.newTicketInput.children[1].value
@@ -47,10 +46,11 @@ class Form {
             parts: newParts,
             labor: newLabor,
             price: newPrice,
-            customer_id: parseInt(customerId)
+            customer_id: this.currentCustomer.id
         }
         debugger
-        this.ticketAdapter.createTickets(ticket) 
+        this.ticketAdapter.createTickets(ticket)
+
         // send post request through ticketsAdaptor to Ticket db
         // if ticket already exists, adds to current ticket
         // add contents of ticket
