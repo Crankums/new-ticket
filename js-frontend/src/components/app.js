@@ -93,9 +93,9 @@ class App {
     deleteCustomerTickets(e){
         const selectedLi = e.target.parentElement
         e.stopPropagation()
-        console.log("deleting customer")
+        console.log("deleting ticket")
         const params = parseInt(selectedLi.dataset.id)
-        debugger
+        // debugger
         // convert to int
         this.ticketsAdapter.deleteTickets(params)
     }
