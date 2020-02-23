@@ -98,6 +98,7 @@ class App {
         // debugger
         // convert to int
         this.ticketsAdapter.deleteTickets(params)
+        selectedLi.innerHTML = (`Ticket Deleted!`)
     }
 
     handleCreateNewTicket(e){
