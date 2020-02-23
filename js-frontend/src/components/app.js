@@ -63,7 +63,7 @@ class App {
     ticketLisBindingsAndEventListeners(){
         const lis = this.ticketContainer.querySelectorAll('.ticket-min')
         for (let li of lis){
-            li.addEventListener('click', this.handleShowingTicket.bind(this))
+            li.addEventListener('click', this.toggle.bind(this))
         }
 
     }
@@ -74,11 +74,15 @@ class App {
             this.handleShowingTicket(e)
         }
         else {
+            
             this.handleHidingTicket(e)
         }
     }
     handleHidingTicket(e){
-
+        const selectedLi = e.target
+        let selectTicketObj = this.currentCustomer.tickets.find(t => t.id === parseInt(selectedLi.parentElement.dataset.id, 10))
+        selectedLi.parentElement.innerHTML = selectTicketObj.ticketLi()
+        selectedLi.className = 'ticket-min'
     }
     handleShowingTicket(e){
         const selectedLi = e.target
@@ -88,7 +92,10 @@ class App {
         for (let delBtn of delBtns) {
             delBtn.addEventListener('click', this.deleteCustomerTickets.bind(this))
         }
+
         selectedLi.className = 'ticket-max'
+
+        
     }
 
     deleteCustomerTickets(e){
