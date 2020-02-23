@@ -40,6 +40,7 @@ class App {
     }
 
     renderCustomerTickets(){
+        
         const formBtn = document.createElement('button')
         formBtn.setAttribute('id', 'form-button')
         formBtn.innerText= "Create New Ticket"
@@ -90,9 +91,11 @@ class App {
     }
 
     deleteCustomerTickets(e){
+        const selectedLi = e.target.parentElement
         e.stopPropagation()
         console.log("deleting customer")
-        const params = e.target.dataset.id
+        const params = parseInt(selectedLi.dataset.id)
+        debugger
         // convert to int
         this.ticketsAdapter.deleteTickets(params)
     }
@@ -109,9 +112,22 @@ class App {
             price: newPrice,
             customer_id: this.currentCustomer.id
         }
-        debugger
         this.ticketsAdapter.createTickets(ticket)
+        .then(this.newTicketInput.remove())
+        .then(this.refreshCustomerTickets())
+        .then(this.renderCustomerTickets())
 
     } 
+
+    refreshCustomerTickets(){
+        const ul = document.querySelector('#ticket-list')
+        const params = {
+            name: this.currentCustomer.name,
+            email: this.currentCustomer.email
+        }
+        this.customerAdapter.fetchCustomer(params)
+        .then(jobj => this.currentCustomer = new Customer(jobj))
+        
+    }
 
 }
