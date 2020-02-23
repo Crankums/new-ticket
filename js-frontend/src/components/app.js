@@ -88,6 +88,7 @@ class App {
         for (let delBtn of delBtns) {
             delBtn.addEventListener('click', this.deleteCustomerTickets.bind(this))
         }
+        selectedLi.className = 'ticket-max'
     }
 
     deleteCustomerTickets(e){
@@ -116,18 +117,21 @@ class App {
         this.ticketsAdapter.createTickets(ticket)
         .then(this.newTicketInput.remove())
         .then(this.refreshCustomerTickets())
-        .then(this.renderCustomerTickets())
-
     } 
 
     refreshCustomerTickets(){
         const ul = document.querySelector('#ticket-list')
+        ul.remove()
         const params = {
             name: this.currentCustomer.name,
             email: this.currentCustomer.email
         }
         this.customerAdapter.fetchCustomer(params)
-        .then(jobj => this.currentCustomer = new Customer(jobj))
+        .then(jobj => {
+            this.currentCustomer = new Customer(jobj),
+            this.renderCustomerTickets(),
+            this.ticketLisBindingsAndEventListeners()
+        })
         
     }
 
