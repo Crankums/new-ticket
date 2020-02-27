@@ -6,9 +6,13 @@ class Api::V1::CustomersController < ApplicationController
 
     def find_or_create_customer
         customer = Customer.find_or_create_by(name: customer_params[:name], email: customer_params[:email])
-        render json: customer, status: 200
+        if customer.save
+            render json: customer, status: 200
+        else
+            render json: {error: "Failed to create ticket", status: 500}, status: 500
+        end
     end
-
+    
     def show
         customer = Customer.find(params[:id])
         render json: customer, status: 200

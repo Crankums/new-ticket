@@ -12,9 +12,13 @@ class Api::V1::TicketsController < ApplicationController
     end
 
     def create
-        ticket = Ticket.create(ticket_params)
-
-        render json: ticket, status: 200
+        customer = Customer.find_by(id: params[:customer_id])
+        ticket = customer.tickets.build(ticket_params)
+        if ticket.save
+            render json: ticket, status: 200
+        else
+            render json: {error: "Failed to create ticket", status: 500}, status: 500
+        end
     end
 
     def update
