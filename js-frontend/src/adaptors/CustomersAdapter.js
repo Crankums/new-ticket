@@ -24,6 +24,7 @@ class CustomersAdapter {
         body: JSON.stringify(data)
         })
         .then(res => res.json())
+        .catch(error => console.log(error))
     }
     
 }
