@@ -11,6 +11,7 @@ class TicketsAdapter {
             }
         })
         .then(res => res.json())
+        .catch(error => console.log(error))
     }
 
     createTickets(ticket) {
@@ -21,6 +22,8 @@ class TicketsAdapter {
             },
             body: JSON.stringify(ticket)
         })
+        .then(res => res.json())
+        .catch(error => console.log(error))
     }
 
     updateTickets(id) {
@@ -31,6 +34,8 @@ class TicketsAdapter {
             },
             body: JSON.stringify(id)
         })
+        .then(res => res.json())
+        .catch(error => console.log(error))
     }
 
     deleteTickets(id){
@@ -41,6 +46,8 @@ class TicketsAdapter {
             },
             body: JSON.stringify(id)
         })
+        .then(res => res.json())
+        .catch(error => console.log(error))
     }
 
     // is an update method necessary? if ticket is already created, otherwise updates and adds a line
