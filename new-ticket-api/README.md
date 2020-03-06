@@ -8,7 +8,8 @@ bundle install
 rails db:create
 rails db:migrate
 rails db:seed [optional]
-rails s```
+rails s
+```
 
 
 Then open js-frontend/index.html in a browser.
