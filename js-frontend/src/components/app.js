@@ -66,7 +66,10 @@ class App {
     }
 
     sortTickets(){
-        this.currentCustomer.tickets.sort((a, b) => b.id > a.id)
+        const ul = this.ticketContainer.querySelector('ul')
+        this.currentCustomer.tickets.sort((a, b) => b.id-a.id)
+        ul.innerHTML =`${this.currentCustomer.tickets.map(t => t.ticketLi()).join('')}`
+        this.ticketLisBindingsAndEventListeners()
     }
 
     renderNewTicketForm(){  
