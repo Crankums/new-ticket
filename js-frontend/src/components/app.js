@@ -104,6 +104,7 @@ class App {
         selectedLi.parentElement.innerHTML = selectTicketObj.ticketLi()
         selectedLi.className = 'ticket-min'
     }
+
     handleShowingTicket(e){
         const selectedLi = e.target
         let selectTicketObj = this.currentCustomer.tickets.find(t => t.id === parseInt(selectedLi.dataset.id, 10))
@@ -112,10 +113,7 @@ class App {
         for (let delBtn of delBtns) {
             delBtn.addEventListener('click', this.deleteCustomerTickets.bind(this))
         }
-
         selectedLi.className = 'ticket-max'
-
-        
     }
 
     deleteCustomerTickets(e){
@@ -123,8 +121,6 @@ class App {
         e.stopPropagation()
         console.log("deleting ticket")
         const params = parseInt(selectedLi.dataset.id)
-        // debugger
-        // convert to int
         this.ticketsAdapter.deleteTickets(params)
         selectedLi.innerHTML = (`Ticket Deleted!`)
     }
@@ -134,7 +130,6 @@ class App {
         const newParts = this.newTicketInput.children[0].value
         const newLabor = this.newTicketInput.children[1].value
         const newPrice = this.newTicketInput.children[2].value
-        
         const ticket = {
             parts: newParts,
             labor: newLabor,
@@ -160,7 +155,6 @@ class App {
             this.ticketLisBindingsAndEventListeners()
         })
         .catch(error => console.log(error))
-        
     }
 
 }
