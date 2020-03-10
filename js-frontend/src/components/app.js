@@ -46,12 +46,29 @@ class App {
         formBtn.innerText= "Create New Ticket"
         this.ticketForm.appendChild(formBtn)
         formBtn.addEventListener('click', this.renderNewTicketForm.bind(this))
-        // attach to top of container, add eventlistener to fire form
+        const sortBtn = document.createElement('button')
+        sortBtn.setAttribute('id', 'sort-button')
+        sortBtn.innerText= "Sort Tickets Z-A"
+        this.ticketForm.appendChild(sortBtn)
+        sortBtn.addEventListener('click', this.sortTickets.bind(this))
         const ul = document.createElement('ul')
         ul.setAttribute('id', 'ticket-list')
         this.ticketContainer.appendChild(ul)
         ul.innerHTML = `${this.currentCustomer.tickets.map(t => t.ticketLi()).join('')}`
     }
+
+    sortTcktBtn(){
+        const sortBtn = document.createElement('button')
+        sortBtn.setAttribute('id', 'sort-button')
+        sortBtn.innerText= "Sort Tickets Z-A"
+        this.ticketForm.appendChild(sortBtn)
+        sortBtn.addEventListener('click', this.sortTickets.bind(this))
+    }
+
+    sortTickets(){
+        this.currentCustomer.tickets.sort((a, b) => b.id > a.id)
+    }
+
     renderNewTicketForm(){  
         this.ticketFormInputs = new Form
         this.ticketForm.innerHTML = this.ticketFormInputs.newTicketInputHTML()
@@ -123,7 +140,7 @@ class App {
         }
         this.ticketsAdapter.createTickets(ticket)
         .then(this.newTicketInput.remove())
-        .then(this.refreshCustomerTickets())
+        this.refreshCustomerTickets()
     } 
 
     refreshCustomerTickets(){
@@ -139,6 +156,7 @@ class App {
             this.renderCustomerTickets(),
             this.ticketLisBindingsAndEventListeners()
         })
+        .catch(error => console.log(error))
         
     }
 
