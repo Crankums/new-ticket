@@ -57,13 +57,13 @@ class App {
         ul.innerHTML = `${this.currentCustomer.tickets.map(t => t.ticketLi()).join('')}`
     }
 
-    sortTcktBtn(){
-        const sortBtn = document.createElement('button')
-        sortBtn.setAttribute('id', 'sort-button')
-        sortBtn.innerText= "Sort Tickets Z-A"
-        this.ticketForm.appendChild(sortBtn)
-        sortBtn.addEventListener('click', this.sortTickets.bind(this))
-    }
+    // sortTcktBtn(){
+    //     const sortBtn = document.createElement('button')
+    //     sortBtn.setAttribute('id', 'sort-button')
+    //     sortBtn.innerText= "Sort Tickets Z-A"
+    //     this.ticketForm.appendChild(sortBtn)
+    //     sortBtn.addEventListener('click', this.sortTickets.bind(this))
+    // }
 
     sortTickets(){
         const ul = this.ticketContainer.querySelector('ul')
